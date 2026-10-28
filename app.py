@@ -19,6 +19,8 @@ app.teardown_appcontext(db.schliessen)
 def startseite():
     return render_template("start.html", sqlite_version=db.sqlite_version())
 
+@app.route("./login.html")
+
 
 @app.cli.command("init-db")
 def init_db():
