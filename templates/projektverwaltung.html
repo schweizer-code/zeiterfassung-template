@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block titel %}Projektverwaltung{% endblock %}
+
+{% block inhalt %}
+<h1 class = "h1">Projektverwaltung</h1>
+
+<div class = "Liste">
+<div class = "mitarbeiter">
+    <h1 class = "h1">Mitarbeiter Liste</h1>
+</div>
+
+<div class = "projekte">
+    <h1 class = "h1">Projekt Liste</h1>
+</div>
+</div>
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+{% endblock %}

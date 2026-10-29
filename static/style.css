@@ -5,3 +5,37 @@ nav ul { flex-wrap: wrap; }
 .meldung { padding: .5rem .75rem; border-left: 4px solid var(--pico-muted-border-color); }
 .meldung.fehler { border-left-color: #b3261e; }
 .meldung.ok { border-left-color: #1f6f5c; }
+
+.Liste {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 50px auto;
+}
+
+.mitarbeiter {
+    background-color: #1f6f5c;
+    padding: 30px;
+    width: 250px;
+    min-height: 300px;
+    border-radius: 10px;
+    text-align: center;
+    border-color: #2a7b6f;
+}
+
+.projekte {
+    background-color: #1f6f5c;
+    padding: 30px;
+    width: 250px;
+    min-height: 300px;
+    border-radius: 10px;
+    text-align: center;
+    
+    border-color: #2a7b6f;
+    
+}
+
+.h1{
+    text-align: center;
+}
