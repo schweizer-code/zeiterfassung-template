@@ -33,3 +33,5 @@ def tabellen_anlegen():
 
 def sqlite_version() -> str:
     return verbindung().execute("SELECT sqlite_version()").fetchone()[0]
+
+
