@@ -13,6 +13,24 @@
 <input type="text" id="name" name="name" required>
 
 <button type="submit">Projekt speichern</button>
+    
 </form>
+
+<h5>Gespeicherte Projekte</h5>
+
+<div class="projektliste">
+    {% for projekt in projekte %}
+    <div class="projekt">
+        <p>{{ projekt["projektnummer"]}}. {{projekt["name"]}}</p>
+    </div>
+    {% else %}
+    <p>Noch keine Projekte vorhanden.</p>
+    {% endfor %}
+</div>
+
+
+
+
+
 
 {% endblock %}
