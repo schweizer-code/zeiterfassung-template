@@ -6,36 +6,35 @@ nav ul { flex-wrap: wrap; }
 .meldung.fehler { border-left-color: #b3261e; }
 .meldung.ok { border-left-color: #1f6f5c; }
 
-.Liste {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    margin: 50px auto;
+
+.h1 {
+    text-align: center;
 }
 
-.mitarbeiter {
-    background-color: #1f6f5c;
-    padding: 30px;
-    width: 250px;
-    min-height: 300px;
+.formular {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #e8edf3;
     border-radius: 10px;
-    text-align: center;
-    border-color: #2a7b6f;
 }
 
-.projekte {
-    background-color: #1f6f5c;
-    padding: 30px;
-    width: 250px;
-    min-height: 300px;
-    border-radius: 10px;
-    text-align: center;
-    
-    border-color: #2a7b6f;
-    
+.formular label,
+.formular input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
 }
 
-.h1{
-    text-align: center;
+.formular input {
+    padding: 10px;
+}
+
+.formular button {
+    padding: 10px 15px;
+    background-color: #3569a8;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }

@@ -5,17 +5,14 @@
 {% block inhalt %}
 <h1 class = "h1">Projektverwaltung</h1>
 
-<div class = "Liste">
-<div class = "mitarbeiter">
-    <h1 class = "h1">Mitarbeiter Liste</h1>
-</div>
+<form method="post">
+<label for="projektnummer">Projektnummer</label>
+<input type="text" id="projektnummer" name="projektnummer" required>
 
-<div class = "projekte">
-    <h1 class = "h1">Projekt Liste</h1>
-</div>
-</div>
+<label for="name">Projektname</label>
+<input type="text" id="name" name="name" required>
 
-
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<button type="submit">Projekt speichern</button>
+</form>
 
 {% endblock %}
