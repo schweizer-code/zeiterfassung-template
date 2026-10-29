@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block titel %}Projektverwaltung{% endblock %}
+
+{% block inhalt %}
+<h1 class = "h1">Projektverwaltung</h1>
+
+<form method="post">
+<label for="projektnummer">Projektnummer</label>
+<input type="text" id="projektnummer" name="projektnummer" required>
+
+<label for="name">Projektname</label>
+<input type="text" id="name" name="name" required>
+
+<button type="submit">Projekt speichern</button>
+    
+</form>
+
+<h5>Gespeicherte Projekte</h5>
+
+<div class="projektliste">
+    {% for projekt in projekte %}
+    <div class="projekt">
+        <p>{{ projekt["projektnummer"]}}. {{projekt["name"]}}</p>
+    </div>
+    {% else %}
+    <p>Noch keine Projekte vorhanden.</p>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+{% endblock %}

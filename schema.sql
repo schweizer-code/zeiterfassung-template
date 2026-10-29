@@ -7,3 +7,8 @@
 --       id INTEGER PRIMARY KEY AUTOINCREMENT,
 --       ...
 --   );
+
+CREATE TABLE IF NOT EXISTS Projekte (
+    projektnummer TEXT PRIMARY KEY,
+    name TEXT NOT NULL
+);
