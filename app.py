@@ -40,6 +40,9 @@ def projektverwaltung():
 def startseite():
     return render_template("start.html", sqlite_version=db.sqlite_version())
 
+@app.route("/auswertung")
+def auswertung():
+    return render_template("auswertung.html")
 
 @app.cli.command("init-db")
 def init_db():
