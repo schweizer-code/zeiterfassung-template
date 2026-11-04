@@ -116,7 +116,7 @@ def stempeln():
 
     return render_template("stempeln.html", projekte=db.alle_projekte())
 
-
+ 
 @app.route("/ausstempeln", methods=["POST"])
 @login_erforderlich
 def ausstempeln():
