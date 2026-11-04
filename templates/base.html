@@ -22,6 +22,33 @@
       <p class="meldung {{ kategorie }}">{{ text }}</p>
     {% endfor %}
     {% block inhalt %}{% endblock %}
-  </main>
+ 
+  <nav>
+  <ul><li><strong>Zeiterfassung</strong></li></ul>
+  <ul>
+    {% if benutzer %}
+      <li><a href="{{ url_for('startseite') }}">Start</a></li>
+      <li><a href="{{ url_for('stempeln') }}">Einstempeln</a></li>
+      <li><a href="{{ url_for('tagesuebersicht') }}">Heute</a></li>
+      {% if benutzer["ist_chefin"] %}
+        <li><a href="{{ url_for('projekte') }}">Projekte</a></li>
+        <li><a href="{{ url_for('auswertung') }}">Auswertung</a></li>
+        <li><a href="{{ url_for('korrektur_liste') }}">Korrektur</a></li>
+      {% endif %}
+      <li>
+        <form method="post" action="{{ url_for('logout') }}" style="margin:0">
+          <button type="submit" class="secondary">Abmelden ({{ benutzer["name"] }})</button>
+        </form>
+      </li>
+    {% endif %}
+  </ul>
+</nav>
+  <li><a href="{{ url_for('korrektur_liste') }}">Korrektur</a></li>
+  <li><a href="{{ url_for('export') }}">Export (CSV)</a></li>
+  <li><a href="{{ url_for('auswertung') }}">Auswertung</a></li>
+ </main>
+  <footer class="container">
+    <p>© 2024 ipso! Bildung</p>
+  </footer>
 </body>
 </html>

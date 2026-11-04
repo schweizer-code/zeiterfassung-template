@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block titel %}Stempelung korrigieren{% endblock %}
+
+{% block inhalt %}
+  <h1>Stempelung korrigieren</h1>
+
+  <form method="get">
+    <label>Mitarbeiter/in
+      <select name="mitarbeiter" onchange="this.form.submit()">
+        <option value="">Alle</option>
+        {% for m in mitarbeiter %}
+          <option value="{{ m['id'] }}" {{ 'selected' if m['id'] == gewaehlt }}>{{ m["name"] }}</option>
+        {% endfor %}
+      </select>
+    </label>
+  </form>
+
+  <table>
+    <thead>
+      <tr><th>Mitarbeiter/in</th><th>Projekt</th><th>Beginn</th><th>Ende</th><th></th></tr>
+    </thead>
+    <tbody>
+      {% for s in stempelungen %}
+        <tr>
+          <td>{{ s["mitarbeiter"] }}</td>
+          <td>{{ s["nummer"] }}: {{ s["projekt"] }}</td>
+          <td>{{ s["beginn"][:16].replace("T", " ") }}</td>
+          <td>{{ s["ende"][:16].replace("T", " ") if s["ende"] else "läuft" }}</td>
+          <td><a href="{{ url_for('korrektur', stempelung_id=s['id']) }}">Korrigieren</a></td>
+        </tr>
+      {% else %}
+        <tr><td colspan="5">Keine Stempelungen gefunden.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

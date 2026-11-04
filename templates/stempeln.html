@@ -9,13 +9,6 @@
     <p>Es gibt noch kein Projekt. Die Chefin muss zuerst eines erfassen.</p>
   {% else %}
     <form method="post">
-      <label>Mitarbeiter/in
-        <select name="mitarbeiter" required>
-          {% for m in mitarbeiter %}
-            <option value="{{ m['id'] }}" {{ 'selected' if m['id'] == gewaehlt }}>{{ m["name"] }}</option>
-          {% endfor %}
-        </select>
-      </label>
       <label>Projekt
         <select name="projekt" required>
           {% for p in projekte %}
