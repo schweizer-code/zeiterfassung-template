@@ -1,16 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block titel %}{% endblock %} · Zeiterfassung</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='pico.min.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    </head>
-    <title>Auswertung</title>
-</head>
-<body>
+{% extends "base.html" %}
 
+{% block titel %}Auswertung{% endblock %}
 
-</body>
-</html>
+{% block inhalt %}
+  <h1>Auswertung</h1>
+
+  <form method="get">
+    <label>Von
+      <input type="date" name="von" value="{{ von }}">
+    </label>
+    <label>Bis
+      <input type="date" name="bis" value="{{ bis }}">
+    </label>
+    <button type="submit">Anzeigen</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Mitarbeiter/in</th><th>Projekt</th><th>Datum</th>
+        <th>Beginn</th><th>Ende</th><th>Dauer</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in eintraege %}
+        <tr>
+          <td>{{ e.mitarbeiter }}</td><td>{{ e.projekt }}</td><td>{{ e.datum }}</td>
+          <td>{{ e.beginn }}</td><td>{{ e.ende }}</td><td>{{ e.dauer }}</td>
+        </tr>
+      {% else %}
+        <tr><td colspan="6">Keine Stempelungen in diesem Zeitraum.</td></tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr><th colspan="5">Total</th><th>{{ total }}</th></tr>
+    </tfoot>
+  </table>
+
+  <a href="{{ url_for('export', von=von or none, bis=bis or none) }}" role="button">Export (CSV)</a>
+{% endblock %}

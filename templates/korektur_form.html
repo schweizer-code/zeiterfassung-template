@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block titel %}Stempelung korrigieren{% endblock %}
+
+{% block inhalt %}
+  <h1>Stempelung korrigieren</h1>
+  <p>{{ s["mitarbeiter"] }}, Projekt {{ s["nummer"] }}: {{ s["projekt"] }}</p>
+
+  <form method="post">
+    <label>Beginn
+      <input type="datetime-local" name="beginn" value="{{ s['beginn'][:16] }}" required>
+    </label>
+    <label>Ende (leer lassen = läuft noch)
+      <input type="datetime-local" name="ende" value="{{ s['ende'][:16] if s['ende'] else '' }}">
+    </label>
+    <button type="submit">Speichern</button>
+    <a href="{{ url_for('korrektur_liste') }}">Abbrechen</a>
+  </form>
+{% endblock %}
