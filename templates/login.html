@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block titel %}Anmelden{% endblock %}
+
+{% block inhalt %}
+  <h1>Anmelden</h1>
+
+  <form method="post">
+    <label>Benutzername
+      <input name="benutzername" autocomplete="username" required autofocus>
+    </label>
+    <label>Passwort
+      <input type="password" name="passwort" autocomplete="current-password" required>
+    </label>
+    <button type="submit">Anmelden</button>
+  </form>
+{% endblock %}
