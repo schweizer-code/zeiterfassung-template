@@ -5,3 +5,36 @@ nav ul { flex-wrap: wrap; }
 .meldung { padding: .5rem .75rem; border-left: 4px solid var(--pico-muted-border-color); }
 .meldung.fehler { border-left-color: #b3261e; }
 .meldung.ok { border-left-color: #1f6f5c; }
+
+
+.h1 {
+    text-align: center;
+}
+
+.formular {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #e8edf3;
+    border-radius: 10px;
+}
+
+.formular label,
+.formular input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.formular input {
+    padding: 10px;
+}
+
+.formular button {
+    padding: 10px 15px;
+    background-color: #3569a8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}

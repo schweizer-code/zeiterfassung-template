@@ -33,3 +33,16 @@ def tabellen_anlegen():
 
 def sqlite_version() -> str:
     return verbindung().execute("SELECT sqlite_version()").fetchone()[0]
+
+
+def projekte_anzeigen():
+    return verbindung().execute(
+        "SELECT projektnummer, name FROM Projekte ORDER BY projektnummer"
+    ).fetchall()
+
+def projekt_speichern(projektnummer, name):
+    verbindung().execute(
+        "INSERT INTO Projekte (projektnummer, name) VALUES (?, ?)",
+        (projektnummer, name)
+    )
+    verbindung().commit()

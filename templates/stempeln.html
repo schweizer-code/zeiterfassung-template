@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block titel %}Einstempeln{% endblock %}
+
+{% block inhalt %}
+  <h1>Einstempeln</h1>
+
+  {% if not projekte %}
+    <p>Es gibt noch kein Projekt. Die Chefin muss zuerst eines erfassen.</p>
+  {% else %}
+    <form method="post">
+      <label>Mitarbeiter/in
+        <select name="mitarbeiter" required>
+          {% for m in mitarbeiter %}
+            <option value="{{ m['id'] }}" {{ 'selected' if m['id'] == gewaehlt }}>{{ m["name"] }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Projekt
+        <select name="projekt" required>
+          {% for p in projekte %}
+            <option value="{{ p['nummer'] }}">{{ p["nummer"] }}: {{ p["name"] }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <button type="submit">Start</button>
+    </form>
+  {% endif %}
+{% endblock %}
